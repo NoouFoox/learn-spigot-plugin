@@ -1,0 +1,4 @@
+name: serverTest
+version: '${version}'
+main: fun.servertest.ServerTest
+api-version: '1.20'
