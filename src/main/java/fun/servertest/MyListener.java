@@ -1,5 +1,7 @@
 package fun.servertest;
 
+import fun.servertest.enums.TextColor;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -39,6 +41,8 @@ public class MyListener implements Listener {
             player.getInventory().addItem(itemStack);
 //            取消默认事件
             event.setCancelled(true);
+            player.sendMessage("§e发送成功");
+            event.getView().close();
         }
     }
 }

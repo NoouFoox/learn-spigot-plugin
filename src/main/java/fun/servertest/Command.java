@@ -1,5 +1,6 @@
 package fun.servertest;
 
+import fun.servertest.tools.MTxt;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -29,7 +30,7 @@ public class Command implements CommandExecutor {
             ItemStack item = new ItemStack(Material.GLOW_BERRIES,1);
             ItemMeta itemMeta = item.getItemMeta();
             if (itemMeta != null) {
-                itemMeta.setDisplayName("千金镇");
+                itemMeta.setDisplayName(MTxt.format("千金镇"));
             }
             item.setItemMeta(itemMeta);
             player.openInventory(inventory);
