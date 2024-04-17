@@ -6,6 +6,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Objects;
 
 public final class ServerTest extends JavaPlugin {
+    static ServerTest main;
+
+    @Override
+    public void onLoad() {
+//        生成配置文件 存在不生成
+        saveDefaultConfig();
+        main = this;
+    }
 
     @Override
     public void onEnable() {

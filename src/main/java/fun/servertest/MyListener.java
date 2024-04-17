@@ -14,12 +14,17 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MyListener implements Listener {
     @EventHandler
     public void playerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        event.setJoinMessage("进入了服务器" + player.getName());
+        String msg = ServerTest.main.getConfig().getString("joinMessage");
+//        String msg2 = ServerTest.main.getConfig().getString("key4.key1");
+        if (msg != null) {
+            event.setJoinMessage(msg.replace("%player%",player.getName()));
+        }
     }
 
     @EventHandler

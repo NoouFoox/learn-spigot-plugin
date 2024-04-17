@@ -1,0 +1,11 @@
+key : "芝士测试"
+key1: 123
+keys :
+  - "1"
+  - "2"
+  - "3"
+  - "3"
+key4:
+  key: 123
+  key1: '123'
+joinMessage: "%player% 进入了这个服务器!!"
