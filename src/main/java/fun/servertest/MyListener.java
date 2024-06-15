@@ -1,12 +1,15 @@
 package fun.servertest;
 
+import com.bekvon.bukkit.residence.api.ResidenceApi;
 import fun.servertest.enums.TextColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -48,6 +51,16 @@ public class MyListener implements Listener {
             event.setCancelled(true);
             player.sendMessage("§e发送成功");
             event.getView().close();
+        }
+    }
+    @EventHandler
+    public void onPlayerFish(PlayerFishEvent event){
+        Player player = event.getPlayer();
+        if(event.getState()==PlayerFishEvent.State.CAUGHT_FISH){
+            if (event.getCaught() instanceof Item) {
+                Item caught = (Item) event.getCaught();
+                caught.setItemStack(new ItemStack(Material.DIAMOND));
+            }
         }
     }
 }

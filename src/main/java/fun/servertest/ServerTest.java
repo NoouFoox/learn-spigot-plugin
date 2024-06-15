@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.Objects;
 
 public final class ServerTest extends JavaPlugin {
-    static ServerTest main;
+    public static ServerTest main;
 
     @Override
     public void onLoad() {
