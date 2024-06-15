@@ -1,8 +1,7 @@
 package fun.servertest;
 
 import com.bekvon.bukkit.residence.api.ResidenceApi;
-import fun.servertest.enums.TextColor;
-import org.bukkit.Color;
+import com.bekvon.bukkit.residence.protection.ClaimedResidence;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
@@ -56,6 +55,11 @@ public class MyListener implements Listener {
     @EventHandler
     public void onPlayerFish(PlayerFishEvent event){
         Player player = event.getPlayer();
+        ClaimedResidence residence = ResidenceApi.getResidenceManager().getByLoc(player.getLocation());
+        if(residence!=null){
+            String resName = residence.getName();
+            player.sendMessage("§e你在领地"+resName+"中钓鱼");
+        }
         if(event.getState()==PlayerFishEvent.State.CAUGHT_FISH){
             if (event.getCaught() instanceof Item) {
                 Item caught = (Item) event.getCaught();
